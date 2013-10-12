@@ -1,8 +1,8 @@
 {
 	"name": "ssg",
 	"description": "Compiles dynamic view files into static HTML. ",
-	"version": "0.1",
-	"private": true,
+	"version": "1.0.0",
+	"private": false,
 	"preferGlobal": "true",
 	"bin": {
 	    "ssg" : "app.js"

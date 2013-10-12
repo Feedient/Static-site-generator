@@ -9,7 +9,7 @@ Simple command line utility that compiles dynamic EJS view files into static HTM
 
 To install SSG, simply run
 
-	npm install ssg
+	npm install ssg -g
 
 The command syntax is:
 
