@@ -26,15 +26,15 @@ In case you need to change certain things when you publish your website (such as
 
 Let's imagine my `ssg.json` contains the following config data:
 
+```json
+"config": {
+	"url": "http://127.0.0.1/"
+},
 
-	"config": {
-		"url": "http://127.0.0.1/"
-	},
-
-	"config_env": {
-		"production": {
-			"url": "http://mysite.com/"
-		}
+"config_env": {
+	"production": {
+		"url": "http://mysite.com/"
 	}
-	
+}
+```	
 If I now run `ssg . production`, `<%= url %>` will equal `http://mysite.com/` but if I run `ssg .` it will equal `http://127.0.0.1/`
