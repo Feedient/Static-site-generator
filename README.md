@@ -1,8 +1,9 @@
 Static Site Generator ("SSG")
 =====================
 
-Simple command line utility that compiles dynamic EJS view files into static HTML, based on a manifest file in the target directory. See example for reference.
+Simple command line utility that compiles dynamic EJS view files into static HTML, based on a manifest file in the target directory.
 
+[See example for reference.](https://github.com/jesperlindstrom/Static-site-generator/tree/master/example)
 
 
 ### Installation
@@ -27,14 +28,20 @@ In case you need to change certain things when you publish your website (such as
 Let's imagine my `ssg.json` contains the following config data:
 
 ```json
-"config": {
-	"url": "http://127.0.0.1/"
-},
+{
+	"config": {
+		"url": "http://127.0.0.1/"
+	},
 
-"config_env": {
-	"production": {
-		"url": "http://mysite.com/"
-	}
+	"config_env": {
+		"production": {
+			"url": "http://mysite.com/"
+		}
+	},
+	
+	"views": [
+		...
+	]
 }
 ```	
 If I now run `ssg . production`, `<%= url %>` will equal `http://mysite.com/` but if I run `ssg .` it will equal `http://127.0.0.1/`
