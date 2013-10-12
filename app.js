@@ -43,6 +43,9 @@ var globalData = {
 	config: _.extend(ssgConfig.config || {}, ssgConfig.config_env[env] || {})
 };
 
+// Pass the environment to the view
+globalData.config.env = env;
+
 // Loop through every view
 ssgConfig.views.forEach(function(view) {
 	// Load the input file
