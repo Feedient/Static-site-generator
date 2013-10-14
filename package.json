@@ -1,7 +1,7 @@
 {
 	"name": "ssg",
 	"description": "Compiles dynamic view files into static HTML. ",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"private": false,
 	"preferGlobal": "true",
 	"bin": {
@@ -9,6 +9,7 @@
 	},
 	"dependencies": {
 		"ejs": "*",
+		"colors": "*",
 		"underscore": "*"
 	},
 	"repository": {
