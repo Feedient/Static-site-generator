@@ -44,4 +44,4 @@ Let's imagine my `ssg.json` contains the following config data:
 	]
 }
 ```	
-If I now run `ssg . production`, `<%= url %>` will equal `http://mysite.com/` but if I run `ssg .` it will equal `http://127.0.0.1/`
+If I now run `ssg . production`, `<%= config.url %>` will equal `http://mysite.com/` but if I run `ssg .` it will equal `http://127.0.0.1/`
