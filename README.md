@@ -64,3 +64,18 @@ Optional object of key/value data that is sent to the view. Accessed via `<%= my
 	]
 }
 ```
+
+### Node.js API
+You can run SSG from Node.js, using the following code.
+
+```javascript
+var ssg = require('ssg');
+
+ssg('path/to/files', {
+	config: { ... },
+	views: [
+		input: 'index.ejs',
+		output: 'index.html',
+		data: { ... }
+	]
+});
