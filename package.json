@@ -1,15 +1,14 @@
 {
 	"name": "ssg",
-	"description": "Compiles dynamic view files into static HTML. ",
-	"version": "1.0.2",
+	"description": "Compiles dynamic view files into static HTML.",
+	"version": "2.0.0",
 	"private": false,
 	"preferGlobal": "true",
 	"bin": {
-	    "ssg" : "app.js"
+	    "ssg" : "cli.js"
 	},
 	"dependencies": {
 		"ejs": "*",
-		"colors": "*",
 		"underscore": "*"
 	},
 	"repository": {

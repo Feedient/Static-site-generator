@@ -7,41 +7,60 @@ Simple command line utility that compiles dynamic EJS view files into static HTM
 
 
 ### Installation
-
-To install SSG, simply run
+Install SSG from [npm](http://npmjs.org):
 
 	npm install ssg -g
 
+### Usage 
 The command syntax is:
 
 	ssg {path} {environment}
 	
-The environment argument is optional and defaults to "development".
+The environment argument is optional and defaults to "dev". The command will look for a config file named `ssg_{environment}.json`.
 
-To compile the current folder as development environment, just run:
+To compile the current folder as "dev" environment, just run:
 
 	ssg .
-	
-### Environments, what?
-In case you need to change certain things when you publish your website (such as URLs and API tokens), you can provide that in the `config_env` object of your `ssg.json`. The properties in the environment object will be merged with the normal `config` object. If any collisions are found, the `config` value will be overriden by the `config_env` one when sent to the view.
 
-Let's imagine my `ssg.json` contains the following config data:
+The above command will use `ssg_dev.json`.
+
+### Explanation of the SSG manifest
+#### `config`
+Contains global data, sent to all views. Accessed via `<%= config.myConfigProperty %>` in your EJS views.
+
+#### `views`
+Contains an array of your view files and their individual settings.
+
+##### -> `input`
+The EJS source file.
+
+##### -> `output` 
+The HTML file the compiled EJS should be saved to.
+
+##### -> `data`
+Optional object of key/value data that is sent to the view. Accessed via `<%= myProperty %>` in your EJS views.
 
 ```json
 {
 	"config": {
-		"url": "http://127.0.0.1/"
+		"root_url": "http://127.0.0.1/",
+		"title": "Development site"
 	},
 
-	"config_env": {
-		"production": {
-			"url": "http://mysite.com/"
-		}
-	},
-	
 	"views": [
-		...
+		{
+			"input": "index.ejs",
+			"output": "index.html",
+			"data": {
+				"headline": "Welcome to my site",
+				"content": "This is an example message."
+			}
+		},
+
+		{
+			"input": "about.ejs",
+			"output": "about.html"
+		}
 	]
 }
-```	
-If I now run `ssg . production`, `<%= config.url %>` will equal `http://mysite.com/` but if I run `ssg .` it will equal `http://127.0.0.1/`
+```

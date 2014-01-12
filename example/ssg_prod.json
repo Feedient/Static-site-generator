@@ -1,17 +1,7 @@
 {
 	"config": {
-		"root_url": "http://127.0.0.1/",
-		"title": "Hello world!"
-	},
-
-	"config_env": {
-		"production": {
-			"root_url": "http://mysite.com/"
-		},
-
-		"staging": {
-			"root_url": "http://test.mysite.com/"
-		}
+		"root_url": "http://mydomain.com/",
+		"title": "My site is live!"
 	},
 
 	"views": [
