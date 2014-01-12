@@ -40,6 +40,6 @@ module.exports = function(path, options, logMethod) {
 		// Save the output
 		fs.writeFileSync(path + '/' + view.output, template, 'utf8');
 
-		logMethod('Successfully compiled ' + view.input + ' => ' + view.output);
+		logMethod('Successfuly compiled ' + view.input);
 	});
 };
