@@ -34,6 +34,16 @@ module.exports = function(path, options, logMethod) {
 		var data = _.extend(globalData, view.data || {});
 		data.filename = path + '/' + view.input;
 
+		for (var i in data) {
+			if (typeof data[i] == 'object' && data[i].loadFile) {
+				if (fs.existsSync(path + '/' + data[i].loadFile)) {
+					data[i] = JSON.parse(fs.readFileSync(path + '/' + data[i].loadFile, 'utf8'));
+				} else {
+					logMethod(data[i].loadFile + ' does not exist in the specified path');
+				}
+			}
+		}
+
 		// Render the EJS template
 		var template = ejs.render(fileSource, data);
 
